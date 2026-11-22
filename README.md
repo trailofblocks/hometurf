@@ -182,14 +182,13 @@ The fix filter is deliberately loose (an issue number such as `#537` counts), so
 - **gold-first-hunk 17/32:** on 15 tasks, the first hunk of the fix doesn't pass on its own. The difference from the oracle is significant (McNemar p < 0.001). This roughly measures how spread out the fixes are; it isn't an agent.
 - **Time:** the whole demo (validation, calibration, and 96 graded attempts) took 8 minutes on a laptop with `--jobs 4`. Two of those minutes were the candidate that timed out.
 
-[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs the same script on Ubuntu and Windows, and fails if calibration fails. It hasn't run yet, because the repository isn't pushed.
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs the same script on GitHub's Ubuntu and Windows runners and fails if calibration fails. Both passed in the [first CI run](https://github.com/trailofblocks/hometurf/actions/runs/45064658053): on each runner, the oracle solved every task validated there and the no-op agent solved none. The Ubuntu job took 3 min 54 s and the Windows job 20 min 30 s. The per-runner task counts are in that run's job summaries, which GitHub shows only to signed-in users. The numbers above are from the laptop run.
 
 ## What hasn't been verified
 
 - **No model has been run through hometurf.** Every number in this README comes from scripted agents. The first real comparison costs money, so it waits for an API budget.
 - **The Claude Code setup** in the example above hasn't been run (see the note there).
-- **Linux, end to end.** Typecheck, build, and the full test suite pass on Ubuntu (WSL, Node 24.22.3, git 2.34). The sqlparse demo has only run on Windows; on Linux it will first run in CI.
-- **macOS** hasn't been tried.
+- **macOS** hasn't been tried. Ubuntu and Windows are covered by CI: typecheck, build, the test suite, and the sqlparse demo with calibration.
 - **Other test runners.** pytest and Node's test runner are exercised. Jest, Vitest, Go, and others only need to write JUnit XML, but none has been run.
 - **Large repositories.** The fixture has 12 commits and sqlparse about a thousand. A monorepo with a slow setup step will be slow: each attempt and each validation run starts from a fresh checkout.
 
