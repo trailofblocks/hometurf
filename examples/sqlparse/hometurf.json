@@ -1,0 +1,27 @@
+{
+  "repo": "../sqlparse",
+  "name": "sqlparse",
+  "ref": "09dbe1eec31ed1b3cd05366748865f11ba427d32",
+  "setup": null,
+  "tests": {
+    "files": ["tests/**", "test_*.py", "*_test.py", "conftest.py"],
+    "run": ["test_*.py", "*_test.py"],
+    "protect": ["pytest.ini", "tox.ini", "sitecustomize.py", "usercustomize.py"],
+    "command": "python -m pytest -p no:cacheprovider -q --junitxml={junit} {files}",
+    "timeoutSec": 120
+  },
+  "mine": {
+    "since": "2023-01-01",
+    "env": ["pyproject.toml", "setup.py", "setup.cfg", "requirements*.txt", "uv.lock", "pixi.lock", "pixi.toml"],
+    "maxSourceFiles": 10,
+    "maxSourceLines": 400
+  },
+  "validate": { "beforeRuns": 2, "afterRuns": 3 },
+  "agentTimeoutSec": 1800,
+  "scratch": ["__pycache__/", "*.py[cod]", ".pytest_cache/", ".venv/"],
+  "setups": [
+    { "name": "oracle", "builtin": "oracle" },
+    { "name": "noop", "builtin": "noop" },
+    { "name": "gold-first-hunk", "builtin": "gold-first-hunk" }
+  ]
+}

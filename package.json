@@ -1,0 +1,49 @@
+{
+  "name": "hometurf",
+  "version": "0.1.0",
+  "description": "Turn a repository's own git history into a private SWE-bench-style benchmark, then rank coding-agent setups by solve rate and cost.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "hometurf": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "hometurf": "tsx src/cli.ts",
+    "test": "tsx --test tests/*.test.ts"
+  },
+  "keywords": [
+    "benchmark",
+    "swe-bench",
+    "coding-agent",
+    "evaluation",
+    "claude-code",
+    "agents-md",
+    "llm",
+    "git"
+  ],
+  "dependencies": {
+    "commander": "^15.1.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trailofblocks/hometurf.git"
+  },
+  "homepage": "https://github.com/trailofblocks/hometurf#readme"
+}
