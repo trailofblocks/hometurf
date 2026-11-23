@@ -2,6 +2,17 @@
 
 **A private SWE-bench built from your own repository's git history.** hometurf finds the commits where someone fixed a bug and added a test for it, rebuilds the code as it was before each fix, and keeps a task only if its tests fail before the fix and pass after it. Then it runs your coding-agent setups on those tasks and ranks them by how many they solve, what they cost, and how long they take, with confidence intervals so you can tell a real difference from noise.
 
+<!-- portfolio-demo-videos -->
+## Watch the demo
+
+Use it when choosing or evaluating a coding assistant. The walkthrough has on-screen captions.
+
+![Captioned hometurf walkthrough](docs/demo/how-to.gif)
+
+[Download the narrated walkthrough](docs/demo/how-to.mp4?raw=true) · [Download the narrated overview](docs/demo/overview.mp4?raw=true)
+
+<!-- /portfolio-demo-videos -->
+
 [![CI](https://github.com/trailofblocks/hometurf/actions/workflows/ci.yml/badge.svg)](https://github.com/trailofblocks/hometurf/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
